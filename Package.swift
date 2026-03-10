@@ -4,8 +4,7 @@
 import PackageDescription
 
 let version = "1.0.0"
-let checksum = ""
-let coreVersion = "1.1.0"
+let checksum = "42a695bb1f0487d2ae24b5d905bbc9703a755db669e111bdb3a776d900a0568a"
 
 let package = Package(
     name: "AdisonOfferwallGlobalNativeAd",
@@ -13,11 +12,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "AdisonOfferwallGlobalNativeAd",
-            targets: ["AdisonOfferwallGlobalNativeAd", "AdisonOfferwallGlobalNativeAdTarget"]
+            targets: ["AdisonOfferwallGlobalNativeAd"]
         ),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/adison-ads/adison-offerwall-global-core", exact: Version(stringLiteral: coreVersion))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -27,12 +23,5 @@ let package = Package(
             url: "https://github.com/adison-ads/adison-offerwall-global-native-ad/releases/download/\(version)/AdisonOfferwallGlobalNativeAd.zip",
             checksum: checksum
         ),
-        .target(
-            name: "_AdisonOfferwallGlobalNativeAd",
-            dependencies: [
-                .product(name: "AdisonOfferwallGlobalCore", package: "adison-offerwall-global-core")
-            ],
-            path: "Sources"
-        )
     ]
 )
